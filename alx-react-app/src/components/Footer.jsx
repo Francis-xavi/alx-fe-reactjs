@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <p>© 2023 My Favorite Cities</p>
+            <p>2023 City Lovers</p>
         </footer>
     );
     
