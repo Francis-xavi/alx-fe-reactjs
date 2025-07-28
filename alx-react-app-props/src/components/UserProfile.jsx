@@ -1,4 +1,4 @@
-function UserProfile() {
+function UserProfile(props) {
     return (
         <div>
             <h2>{props.name}</h2>
