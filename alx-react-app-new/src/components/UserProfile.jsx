@@ -1,9 +1,9 @@
 function UserProfile(Props) {
     return (
-        <div>
-            <h2>{Props.name}</h2>
-            <p>Age: {Props.age}</p>
-            <p>Bio: {Props.bio}</p>
+        <div style={{ padding: '10px', margin: '10px' }}>
+            <h2 style={{ color: 'red'}}>{Props.name}</h2>
+            <p> <span style={{ fontWeight: 'bold' }}>{Props.age}</span></p>
+            <p> <span style={{ color: 'blue' }} >{Props.bio}</span></p>
         </div>
     );
 }
