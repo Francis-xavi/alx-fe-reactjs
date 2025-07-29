@@ -7,9 +7,15 @@ import Header from './components/Header.jsx'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'
 import UserProfile from './components/UserProfile.jsx'
+import  userContext  from './components/UserContext.js'
 
 function App() {
   const [count, setCount] = useState(0)
+  const userData = {
+    name: 'Bryan',
+    age: 30,
+    email: 'ahunna45@gmail.com'
+  }
 
   return (
     <>
@@ -18,7 +24,10 @@ function App() {
         <Header />
         <MainContent />
         <Footer />
-        <UserProfile name="Alice" age= {25} bio="Loves hiking and photography" />
+        <userContext.Provider value={ userData}>
+          <UserProfile />
+        </userContext.Provider>
+        {/* Example of using UserProfile with props */}
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
