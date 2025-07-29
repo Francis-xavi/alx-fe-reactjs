@@ -7,7 +7,7 @@ import Header from './components/Header.jsx'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'
 import UserProfile from './components/UserProfile.jsx'
-import  userContext  from './components/UserContext.js'
+import  UserContext  from './components/UserContext.js'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,10 +24,9 @@ function App() {
         <Header />
         <MainContent />
         <Footer />
-        <userContext.Provider value={ userData}>
+        <UserContext.Provider value={ userData}>
           <UserProfile />
-        </userContext.Provider>
-        {/* Example of using UserProfile with props */}
+        </UserContext.Provider>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
