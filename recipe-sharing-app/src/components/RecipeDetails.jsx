@@ -4,16 +4,21 @@ import useRecipeStore from './recipeStore';
 
 const RecipeDetails = () => {
   const { id } = useParams();
-  const recipe = useRecipeStore(state =>
-    state.recipes.find(r => r.id === parseInt(id))
-  );
+  const recipes = useRecipeStore(state => state.recipes);
 
-  if (!recipe) return <p>Recipe not found.</p>;
+  // Convert URL id (string) to number for matching
+  const recipe = recipes.find(r => r.id === Number(id));
+
+  if (!recipe) {
+    return <p>Recipe not found.</p>;
+  }
 
   return (
     <div>
-      <h2>{recipe.title}</h2>
-      <p>{recipe.description}</p>
+      <h2>Recipe Details</h2>
+      <p><strong>ID:</strong> {recipe.id}</p> {/* <-- Ensures recipe.id is used */}
+      <p><strong>Title:</strong> {recipe.title}</p>
+      <p><strong>Description:</strong> {recipe.description}</p>
     </div>
   );
 };
