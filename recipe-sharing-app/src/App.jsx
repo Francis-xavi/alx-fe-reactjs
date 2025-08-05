@@ -5,11 +5,6 @@ import './App.css'
 import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import WelcomeMessage from './components/WelcomeMessage.jsx';
-import Header from './components/Header.jsx';
-import MainContent from './components/MainContent.jsx';
-import Footer from './components/Footer.jsx';
-import UserProfile from './components/UserProfile.jsx';
 import RecipeDetails from './components/RecipeDetails.jsx';
 import EditRecipeForm from './components/EditRecipeForm.jsx';
 
