@@ -4,16 +4,19 @@
   const RecipeList = () => {
     const recipes = useRecipeStore(state => state.recipes);
 
-    return (
-      <div>
-        {recipes.map(recipe => (
-          <div key={recipe.id}>
-            <h3>{recipe.title}</h3>
-            <p>{recipe.description}</p>
-          </div>
-        ))}
-      </div>
-    );
+     return (
+    <div>
+      {recipes.map(recipe => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+          <Link to={`/recipe/${recipe.id}`}>View Details</Link> |{" "}
+          <Link to={`/edit/${recipe.id}`}>Edit</Link> |{" "}
+          <DeleteRecipeButton id={recipe.id} />
+        </div>
+      ))}
+    </div>
+  );
 };
   
   export default RecipeList;
