@@ -4,6 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WelcomeMessage from './components/WelcomeMessage.jsx';
+import Header from './components/Header.jsx';
+import MainContent from './components/MainContent.jsx';
+import Footer from './components/Footer.jsx';
+import UserProfile from './components/UserProfile.jsx';
+import RecipeDetails from './components/RecipeDetails.jsx';
+import EditRecipeForm from './components/EditRecipeForm.jsx';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,9 +20,17 @@ function App() {
   return (
     <>
       <div>
-        <h1>Recipe Sharing App</h1>
-        <AddRecipeForm />
-        <RecipeList />
+        <Header />
+        <WelcomeMessage />
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/recipes" element={<RecipeList />} />
+          <Route path="/add" element={<AddRecipeForm />} />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
+          <Route path="/edit/:id" element={<EditRecipeForm />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Routes>
+        <Footer />
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
