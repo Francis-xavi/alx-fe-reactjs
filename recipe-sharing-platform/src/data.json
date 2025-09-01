@@ -3,18 +3,13 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/300"
-  },
-  {
-    "id": 2,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/300"
-  },
-  {
-    "id": 3,
-    "title": "Francesinha",
-    "summary": "Traditional Portuguese sandwich covered in melted cheese and a rich beer sauce.",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://via.placeholder.com/300",
+    "ingredients": ["Spaghetti", "Eggs", "Parmesan cheese", "Bacon", "Black pepper"],
+    "instructions": [
+      "Boil pasta until al dente.",
+      "Fry bacon until crispy.",
+      "Mix eggs and cheese in a bowl.",
+      "Combine everything with pasta and season."
+    ]
   }
 ]

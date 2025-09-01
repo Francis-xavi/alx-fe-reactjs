@@ -1,0 +1,55 @@
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import data from "../data.json";
+
+const RecipeDetail = () => {
+  const { id } = useParams();
+  const [recipe, setRecipe] = useState(null);
+
+  useEffect(() => {
+    const foundRecipe = data.find((r) => r.id === parseInt(id));
+    setRecipe(foundRecipe);
+  }, [id]);
+
+  if (!recipe) return <p className="text-center mt-10">Recipe not found.</p>;
+
+  return (
+    <div className="p-6 max-w-3xl mx-auto">
+      <Link to="/" className="text-blue-500 hover:underline">← Back to Recipes</Link>
+
+      <div className="bg-white shadow-xl rounded-xl mt-6 p-6">
+        <img
+          src={recipe.image}
+          alt={recipe.title}
+          className="w-full h-64 object-cover rounded-lg mb-4"
+        />
+        <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
+        <p className="text-gray-700 mb-6">{recipe.summary}</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Ingredients */}
+          <div className="bg-gray-50 p-4 rounded-lg shadow">
+            <h2 className="text-xl font-semibold mb-2">🛒 Ingredients</h2>
+            <ul className="list-disc list-inside text-gray-600">
+              <li>Ingredient 1</li>
+              <li>Ingredient 2</li>
+              <li>Ingredient 3</li>
+            </ul>
+          </div>
+
+          {/* Instructions */}
+          <div className="bg-gray-50 p-4 rounded-lg shadow">
+            <h2 className="text-xl font-semibold mb-2">👩‍🍳 Instructions</h2>
+            <ol className="list-decimal list-inside text-gray-600 space-y-2">
+              <li>Step 1: Do something</li>
+              <li>Step 2: Do something else</li>
+              <li>Step 3: Serve & enjoy</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RecipeDetail;
