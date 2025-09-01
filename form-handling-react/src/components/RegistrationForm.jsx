@@ -9,13 +9,13 @@ const RegistrationForm = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!username.trim()) newErrors.username = "Username is required.";
-    if (!email.trim()) {
+    if (!username) newErrors.username = "Username is required.";
+    if (!email) {
       newErrors.email = "Email is required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Please enter a valid email address.";
     }
-    if (!password.trim()) newErrors.password = "Password is required.";
+    if (!password) newErrors.password = "Password is required.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -29,7 +29,7 @@ const RegistrationForm = () => {
       console.log("User Registered:", userData);
       alert("Registration successful!");
 
-      // reset
+      // Reset fields
       setUsername("");
       setEmail("");
       setPassword("");
@@ -96,7 +96,7 @@ const RegistrationForm = () => {
           )}
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
