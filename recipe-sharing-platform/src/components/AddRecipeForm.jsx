@@ -8,7 +8,6 @@ const AddRecipeForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
-
     if (!title.trim()) newErrors.title = "Title is required.";
     if (!ingredients.trim()) {
       newErrors.ingredients = "Ingredients are required.";
@@ -19,15 +18,12 @@ const AddRecipeForm = () => {
       }
     }
     if (!instructions.trim()) newErrors.instructions = "Instructions are required.";
-
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validateForm()) {
       const newRecipe = {
         id: Date.now(),
@@ -35,11 +31,8 @@ const AddRecipeForm = () => {
         ingredients: ingredients.split("\n"),
         instructions: instructions.split("\n"),
       };
-
       console.log("Recipe Submitted:", newRecipe);
       alert("Recipe submitted successfully!");
-
-      // Reset form
       setTitle("");
       setIngredients("");
       setInstructions("");
@@ -56,61 +49,69 @@ const AddRecipeForm = () => {
         className="bg-white shadow-lg rounded-lg p-6 space-y-6"
       >
         {/* Title */}
-        <div>
-          <label className="block font-semibold mb-2">Recipe Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className={`w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-              errors.title ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter recipe title"
-          />
-          {errors.title && (
-            <p className="text-red-500 text-sm mt-1">{errors.title}</p>
-          )}
+        <div className="md:flex md:items-center md:space-x-4">
+          <label className="block font-semibold mb-2 md:w-1/3">Recipe Title</label>
+          <div className="md:flex-1">
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className={`w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                errors.title ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="Enter recipe title"
+            />
+            {errors.title && (
+              <p className="text-red-500 text-sm mt-1">{errors.title}</p>
+            )}
+          </div>
         </div>
 
         {/* Ingredients */}
-        <div>
-          <label className="block font-semibold mb-2">Ingredients (one per line)</label>
-          <textarea
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-            className={`w-full border rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-              errors.ingredients ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter ingredients, one per line"
-          />
-          {errors.ingredients && (
-            <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>
-          )}
+        <div className="md:flex md:items-start md:space-x-4">
+          <label className="block font-semibold mb-2 md:w-1/3">Ingredients</label>
+          <div className="md:flex-1">
+            <textarea
+              value={ingredients}
+              onChange={(e) => setIngredients(e.target.value)}
+              className={`w-full border rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                errors.ingredients ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="Enter ingredients, one per line"
+            />
+            {errors.ingredients && (
+              <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>
+            )}
+          </div>
         </div>
 
         {/* Instructions */}
-        <div>
-          <label className="block font-semibold mb-2">Preparation Steps</label>
-          <textarea
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
-            className={`w-full border rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-              errors.instructions ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter preparation steps, one per line"
-          />
-          {errors.instructions && (
-            <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>
-          )}
+        <div className="md:flex md:items-start md:space-x-4">
+          <label className="block font-semibold mb-2 md:w-1/3">Preparation Steps</label>
+          <div className="md:flex-1">
+            <textarea
+              value={instructions}
+              onChange={(e) => setInstructions(e.target.value)}
+              className={`w-full border rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                errors.instructions ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="Enter preparation steps, one per line"
+            />
+            {errors.instructions && (
+              <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>
+            )}
+          </div>
         </div>
 
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
-        >
-          Submit Recipe
-        </button>
+        {/* Submit */}
+        <div className="text-center">
+          <button
+            type="submit"
+            className="w-full md:w-auto bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition"
+          >
+            Submit Recipe
+          </button>
+        </div>
       </form>
     </div>
   );
